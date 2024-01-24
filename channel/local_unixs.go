@@ -47,6 +47,7 @@ func (l *LocalChannel) Name() string {
 }
 
 func (l *LocalChannel) Run(ctx context.Context, script, args string) *spec.Response {
+	log.Infof(ctx, "alex Run")
 	return execScript(ctx, script, args)
 }
 
@@ -202,7 +203,7 @@ func (l *LocalChannel) IsAlpinePlatform(ctx context.Context) bool {
 
 // check command is available or not
 // now, all commands are: ["rm", "dd" ,"touch", "mkdir",  "echo", "kill", ,"mv","mount", "umount","tc", "head"
-//"grep", "cat", "iptables", "sed", "awk", "tar"]
+// "grep", "cat", "iptables", "sed", "awk", "tar"]
 func (l *LocalChannel) IsAllCommandsAvailable(ctx context.Context, commandNames []string) (*spec.Response, bool) {
 	return IsAllCommandsAvailable(ctx, l, commandNames)
 }

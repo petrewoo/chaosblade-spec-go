@@ -35,6 +35,7 @@ func (l *NSExecChannel) Name() string {
 
 func (l *NSExecChannel) Run(ctx context.Context, script, args string) *spec.Response {
 	pid := ctx.Value(NSTargetFlagName)
+	log.Infof(ctx, "alex Run")
 	if pid == nil {
 		return spec.ResponseFailWithFlags(spec.CommandIllegal, script)
 	}
@@ -74,7 +75,7 @@ func (l *NSExecChannel) Run(ctx context.Context, script, args string) *spec.Resp
 		programPath = path.Join(programPath, spec.BinPath)
 	}
 	bin := path.Join(programPath, spec.NSExecBin)
-	log.Debugf(ctx,`Command: %s %s "%s"`, bin, ns_script, args)
+	log.Debugf(ctx, `Command: %s %s "%s"`, bin, ns_script, args)
 
 	split := strings.Split(ns_script, " ")
 
