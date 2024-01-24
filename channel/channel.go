@@ -19,9 +19,9 @@ package channel
 import (
 	"context"
 	"fmt"
-	"github.com/chaosblade-io/chaosblade-spec-go/log"
-	"github.com/chaosblade-io/chaosblade-spec-go/spec"
-	"github.com/chaosblade-io/chaosblade-spec-go/util"
+	"github.com/petrewoo/chaosblade-spec-go/log"
+	"github.com/petrewoo/chaosblade-spec-go/spec"
+	"github.com/petrewoo/chaosblade-spec-go/util"
 	"regexp"
 	"strings"
 )
@@ -30,7 +30,6 @@ import (
 const ProcessKey = "process"
 const ExcludeProcessKey = "excludeProcess"
 const ProcessCommandKey = "processCommand"
-
 
 func GetPidsByLocalPort(ctx context.Context, channel spec.Channel, localPort string) ([]string, error) {
 	available := channel.IsCommandAvailable(ctx, "ss")
@@ -71,7 +70,7 @@ func GetPidsByLocalPort(ctx context.Context, channel spec.Channel, localPort str
 		// centos7: users:(("tengine",pid=237768,fd=6),("tengine",pid=237767,fd=6))
 		// centos6: users:(("tengine",237768,fd=6),("tengine",237767,fd=6))
 		lastField := fields[len(fields)-1]
-		log.Infof(ctx,"GetPidsByLocalPort: lastField: %v", lastField)
+		log.Infof(ctx, "GetPidsByLocalPort: lastField: %v", lastField)
 		pidExp := regexp.MustCompile(`pid=(\d+)|,(\d+),`)
 		// extract all the pids that conforms to pidExp
 		matchedPidArrays := pidExp.FindAllStringSubmatch(lastField, -1)

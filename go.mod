@@ -10,7 +10,7 @@ require (
 )
 
 require (
-	github.com/BurntSushi/toml v0.3.1 // indirect
+	github.com/BurntSushi/toml v1.3.2 // indirect
 	github.com/StackExchange/wmi v1.2.1 // indirect
 	github.com/go-ole/go-ole v1.2.5 // indirect
 	github.com/konsorten/go-windows-terminal-sequences v1.0.1 // indirect

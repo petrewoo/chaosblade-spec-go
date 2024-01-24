@@ -22,15 +22,15 @@ package channel
 import (
 	"context"
 	"fmt"
-	"github.com/chaosblade-io/chaosblade-spec-go/log"
+	"github.com/petrewoo/chaosblade-spec-go/log"
 	"os"
 	"os/exec"
 	"strconv"
 	"strings"
 	"time"
 
-	"github.com/chaosblade-io/chaosblade-spec-go/spec"
-	"github.com/chaosblade-io/chaosblade-spec-go/util"
+	"github.com/petrewoo/chaosblade-spec-go/spec"
+	"github.com/petrewoo/chaosblade-spec-go/util"
 	"github.com/shirou/gopsutil/process"
 )
 
@@ -202,7 +202,7 @@ func (l *LocalChannel) IsAlpinePlatform(ctx context.Context) bool {
 
 // check command is available or not
 // now, all commands are: ["rm", "dd" ,"touch", "mkdir",  "echo", "kill", ,"mv","mount", "umount","tc", "head"
-//"grep", "cat", "iptables", "sed", "awk", "tar"]
+// "grep", "cat", "iptables", "sed", "awk", "tar"]
 func (l *LocalChannel) IsAllCommandsAvailable(ctx context.Context, commandNames []string) (*spec.Response, bool) {
 	return IsAllCommandsAvailable(ctx, l, commandNames)
 }

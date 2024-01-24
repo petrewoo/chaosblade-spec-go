@@ -35,8 +35,8 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/chaosblade-io/chaosblade-spec-go/log"
-	"github.com/chaosblade-io/chaosblade-spec-go/spec"
+	"github.com/petrewoo/chaosblade-spec-go/log"
+	"github.com/petrewoo/chaosblade-spec-go/spec"
 	"github.com/sirupsen/logrus"
 )
 
